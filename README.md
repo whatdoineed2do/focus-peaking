@@ -32,7 +32,7 @@ Index = 0
 
 [FocusPeaking]
 Threshold = 100
-BlurKernelSize = (5, 5)
+BlurKernelSize = (3, 3)
 ```
 
 * **Camera > Index**: set the camera index to use for the webcam stream. By default, it's set to 0, which represents the
@@ -45,8 +45,10 @@ BlurKernelSize = (5, 5)
 4. Execute the main Python script:
 
 ```bash
-python focus_peaking.py
+python focus_peaking.py --index 0
 ```
+
+Alternatively, there is a script `focus-peaking-assist.sh` that uses `gphoto`, `ffmpeg` and the linux kernel `v4l2` subsystem to allow us to connect DSLRs, like a Nikon D300, and give us focus peaking through their liveview capture - this is very useful to support macro photography with focus peaking on older devices which do not have focus peaking as part of their core functionality.
 
 5. A window will appear showing the webcam stream with focus peaking applied.
 
