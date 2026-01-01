@@ -30,7 +30,7 @@ if [ -z "$VIDEO_PATH" ]; then
 fi
 
 # Extract the number (e.g., /dev/video4 -> 4)
-VIDEO_INDEX=$(echo "$VIDEO_PATH" | grep -o '[0-9]\+' | head -n 1)
+VIDEO_INDEX=$(echo "$VIDEO_PATH" | sed -e "s/video4linux//" | grep -o '[0-9]\+' | head -n 1)
 echo "Found $CAMERA_NAME at /dev/video$VIDEO_INDEX"
 
 # 3. Check if any process is already using the camera (Cleanup)
